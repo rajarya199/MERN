@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js-function</title>
+</head>
+<body>
+    <script>
+        //define fn
+        function demoFunction(){
+            document.write(` hello world <br>`)
+        }
+        // fn call
+        demoFunction()
+
+        //arrow fn
+        const demo =()=>{
+            alert('this is arrow fn')
+        }
+         demo()
+        // addfn
+        const addFunction=(x,y)=>{
+            return x+y
+        }
+        const result=addFunction(10,20)
+        document.write(`${result}` )
+
+    </script>
+</body>
+</html>
