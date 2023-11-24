@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>event</title>
+</head>
+<body>
+    <button onclick="demo()">click here to see time</button>
+    <br>
+    <br>
+    <h2 id="result"></h2>
+
+    <img src="https://cdn.britannica.com/78/155378-050-838B4322/Himalayas-Nepal.jpg" alt="no img source" width="600">
+     <button onclick="change()" ondblclick="back()">change image </button>
+    <script>
+        const demo=()=>{
+            document.querySelector('#result').innerHTML=new Date()
+
+        }
+        const change=()=>{
+            document.querySelector('img').src='https://pe-images.s3.amazonaws.com/basics/cc/image-size-resolution/resize-images-for-print/image-cropped-8x10.jpg'
+        }
+        const back=()=>{
+            document.querySelector('img').src='https://cdn.britannica.com/78/155378-050-838B4322/Himalayas-Nepal.jpg'
+        }
+    </script>
+</body>
+</html>
