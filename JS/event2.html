@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label for="pwd"> Password</label>
+    <input type="password" name="pwd" id="pwd" onkeyup="show()"> <br>
+    <h3 id="result"></h3> <br>
+
+    <button id="mybtn"> click here</button>
+    <h3 id="abc">  </h3> <br>
+
+    <label for="mytext"> Name</label>
+    <input type="text"  id="mytext"> <br>
+    <h3 id="output"></h3>
+     <input type="password" name="pasw" id="pasw">
+     <h2 id="out"></h2>
+    <script>
+        const show=()=>{
+            //read password input
+            const pwdInput=document.getElementById('pwd').value
+            document.querySelector('#result').innerHTML=pwdInput;
+        }
+
+
+        const btnInput=document.getElementById('mybtn')
+        //addEventListner('event',function) if fuction/method vitra event function call gerekoxa vane parenthesis() use nagarni
+
+        const showw=()=>{
+            document.getElementById("abc").innerHTML = "Hello World";
+        }
+        btnInput.addEventListener("click",showw)
+
+            const textInput=document.getElementById('mytext')
+             const showout=()=>{
+                document.getElementById('output').innerHTML= 'your name is '+ textInput.value
+             }
+             textInput.addEventListener("keyup",showout)
+
+        const paswInput=document.getElementById('pasw')
+        // paswInput.addEventListener("keyup", function(){
+        //     document.getElementById('out').innerHTML=paswInput.value
+        // })
+        
+        //with anamolous fn
+        paswInput.addEventListener("keyup",()=>{
+                 document.getElementById('out').innerHTML=paswInput.value
+
+        })
+
+    </script> 
+
+
+</body>
+</html>
