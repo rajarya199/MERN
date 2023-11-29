@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const text='welcome to nepal, country of mountains ,to visit Mt Everest'
+        document.write(`${text} <br>`)
+        //lenght method--to count no of character in the string
+        document.write(`${text.length} <br>`)
+        //indexof()-- to find the position of first occurance of  specific character in the string
+        //count start from 0
+        document.write(`${text.indexOf('mountains')} <br>`)
+        document.write(`${text.indexOf('cou')} <br>`)
+
+//search() -locate position
+document.write(`${text.search('mountains')} <br>`)
+        //lastIndexOf()-- last position of (last occurance)repeated string
+        document.write(`${text.lastIndexOf('to')} <br>`)
+
+        //repalce('old','new')--first found one is replace
+
+        document.write(`${text.replace('mountains','hills')} <br>`)
+
+        //repalceAll()
+        document.write(`${text.replaceAll('to','too')} <br>`)
+// replace can be used as replaceAll by using regular expression 
+//--> /text to repalce /global-g,'replace by'
+document.write(`${text.replace(/to/g,'too')} <br>`)
+//i-case insentitive
+document.write(`${text.replace(/TO/gi,'too')} <br>`)
+
+//substring-small part of string
+//substring(start,end)
+//slice(start,end)
+//substr(start,length)
+
+document.write(`${text.substring(0,40)}.... <br>`)
+document.write(`${text.slice(18,40)}..... <br>`)
+
+document.write(`${text.substr(18,40)}... <br>`)
+//toLOwerCase()
+//toUpperCase()
+document.write(`${text.toUpperCase()} <br>`)
+//toString()--convert any data type to string
+
+//includes()-->return true if specific character is present 
+document.write(`${text.includes('to')} <br>`)
+document.write(`${text.includes('too')} <br>`)
+
+//split()
+document.write( `${text.split('nepal')}<br>`)
+document.write( `${text.split(' ')}<br>`)
+
+//indexing
+document.write( `${text[0]}<br>`)
+
+//concat
+document.write('hello'.concat(text) )
+
+//trim()--remove white space
+test='  hello  '
+document.write( `${test.trim()}<br>`)
+//match()
+document.write( `${text.match(/to/g )}<br>`)
+
+
+
+
+
+    </script>
+</body>
+</html>
