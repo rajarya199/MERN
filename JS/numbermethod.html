@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js nhumber method</title>
+</head>
+<body>
+    <script>
+        const num=156.23456818;
+        //toFixed()- no of digits to be print after decimal point
+        document.write(`${num.toFixed(2)}<br>`)
+        document.write(`${num.toFixed(3)}<br>`)
+        //toPercision()-how many digit to printed as a whole;
+        document.write(`${num.toPrecision(5)}<br>`)
+        //
+        document.write(`${num.toExponential(2)}<br>`)
+        document.write(`${num.toExponential(3)}<br>`)
+
+        //to convert string into number use following method-
+        //1 Number()- 12.13.5
+        //2 parseInt()-- 12,13 whole no(+/-)
+        //parseFloat()--14.5 44.6
+
+        const age=parseInt('12.7 years'); // age-12
+        document.write(`${age}<br>`)
+        const ages=parseInt('year 12.5'); //NaN not a number
+        document.write(`${ages}<br>`)
+
+
+
+
+
+    </script>
+</body>
+</html>
