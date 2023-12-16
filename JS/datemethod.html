@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>date method </title>
+</head>
+<body>
+  <script>
+       const date=new Date()
+    document.write(`${date}<br> `)
+    //to get year= .getFullYear()
+    document.write(`${date.getFullYear()}<br> `)
+ //getMonth--0-11
+    document.write(`${date.getMonth()}<br> `)
+    //day of the week getDay()
+    document.write(`${date.getDay()}<br> `)
+    //getDate()--1-31
+    document.write(`${date.getDate()}<br> `)
+    //hours-getHours() 0-23
+    document.write(`${date.getHours()}<br> `)
+    //minute 0-59
+    //seconds-0-59
+    document.write(`${date.getMinutes()}<br> `)
+    document.write(`${date.getMilliseconds()}<br> `)
+  //full time  -toLocaleTimeString()
+  //full date- toLocaleDateString()
+  document.write(`${date.toLocaleDateString()}<br> `)
+  document.write(`${date.toLocaleTimeString()}<br> `)
+
+
+
+  //set methods
+  const d=new Date()
+  document.write(`${d}<br> `)
+  d.setFullYear(2030,5,26)
+  document.write(`${d}<br> `)
+
+  d.setHours(22)
+  document.write(`${d}<br> `)
+  //setInterval()
+  const demoFunction=()=>{
+    document.querySelector('h1').innerHTML='The time is ' + new Date().toLocaleTimeString()
+    document.querySelector('.mydate').innerHTML='The date is ' + new Date().toLocaleDateString()
+
+}
+  //1000ms-1sec
+   setInterval(demoFunction,1000)
+
+  </script>
+
+    <h1>
+        
+    </h1>
+    <h1 class="mydate"></h1>
+</body>
+</html>
