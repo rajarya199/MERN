@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js array</title>
+</head>
+<body>
+    <script>
+        const fruits=['mango','orange','cherry','apple','guava','litchi']
+        document.write( `${fruits} <br>`)
+        //access single element through index
+        document.write( `${fruits[0]} <br>`)// mango
+        document.write( `${fruits[0][0]} <br>`)//m of mango
+        //count length of the array
+        document.write( `${fruits.length} <br>`)
+        //use pop() to remove last element  of array
+        fruits.pop() //remove litchi
+        document.write( `${fruits} <br>`)
+        //push() -add new element at last of array
+        fruits.push('banana') //add banana
+        document.write( `${fruits} <br>`)
+        //shift()-remove eelement from first position
+        //unshift()-add element from first position
+        
+        //splice() remove/add from particular position
+        //splice(start index,no of element remove,'element to add')
+        fruits.splice(2,0,'blackberry','pineapple','watermelon')
+        //2-index no
+        //0- no of element remove 
+        document.write( `${fruits} <br>`)
+        fruits.splice(4,2)
+        document.write( `${fruits} <br>`)
+        // from 4th position remove 2
+        //sort()-asc order
+        fruits.sort()
+        document.write( `${fruits} <br>`)
+        //reverse()-reverse element from last to first
+        fruits.reverse()
+        document.write( `${fruits} <br>`)
+        document.write(typeof(fruits))
+        document.write( ` <br>`)
+        document.write( Array.isArray(fruits))
+
+
+
+</script>
+
+</body>
+</html>
