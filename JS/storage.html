@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="remove()"> remove storage</button>
+    <script>
+        //local storage - running browser storage 
+        //setItem('key','value')
+        //value must converted to sstring
+        //local storage remain until removed
+localStorage.setItem('test','this is a test')
+//getItem('key')
+const data=localStorage.getItem('test')
+console.log(data)
+
+const remove=()=>{
+    localStorage.removeItem('test')
+}
+//sessionStorage -store until session end (browser close)
+sessionStorage.setItem('abc','hello world')
+//JSON - javascript object notation
+const student={
+    'firstName':'ram',
+    'lastName':'thapa',
+    'age':25,
+    'subject':['html','css','js','react']
+}
+// localStorage.setItem('data',student) -can't take array,object directly
+localStorage.setItem('data',JSON.stringify(student)) 
+const show=localStorage.getItem('data')
+console.log(show) //as string
+//console.log(show.firstName)-- undefined .method is not used in string
+// convert string to object
+const view=JSON.parse(localStorage.getItem('data'))
+console.log(view) //as object
+console.log(view.firstName)
+</script>
+</body>
+</html>
