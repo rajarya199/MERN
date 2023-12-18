@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js-callback fn</title>
+</head>
+<body>
+    A callback is a function passed as an argument to another function <br>
+
+This technique allows a function to call another function <br>
+
+A callback function can run after another function has finished
+<div>
+
+</div>
+<h2>
+</h2>
+<h1>
+
+</h1>
+<script>
+const students=[{name:'ram',subject:"geography"},{name:'sam',subject:'history'}]
+
+let str=''
+  students.forEach((std)=>{
+   
+    str +=`<li> ${std.name}</li>`
+    document.querySelector('h1').innerHTML=str
+
+})
+
+    const getStd=(abc)=>{
+        setTimeout(()=>{
+            str +=`<li> ${abc.name}</li>`
+   document.querySelector('h1').innerHTML=str
+        },1000)
+        
+    }
+    const enrollStd=(std,callback)=>{
+        setTimeout(()=>{
+            students.push(std)
+            document.querySelector('h2').innerHTML=std.name + ' has been enrolled'
+            callback(std)
+    
+        },2000)
+    }
+    //callback fn -getStd fn is pass as argument
+    enrollStd({name:'hari',subject:'social'},getStd)
+</script>
+   
+</body>
+</html>
