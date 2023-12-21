@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> js promise</title>
+</head>
+<body>
+    <div>
+
+    </div>
+    <script>
+         const news=[
+            {newsTitle:'first Title',newsContent:'this is the first news'},
+            {newsTitle:'Second Title',newsContent:'this is the second news'},
+            {newsTitle:'third Title',newsContent:'this is the third news'}
+    ]
+
+    const showNews=()=>{
+        setTimeout(()=>{
+            let result=''
+            news.forEach(post=>{
+                result +=`
+                <ul>
+                    <li>${post.newsTitle}
+                        <ul>
+                            ${post.newsContent}
+                            </ul>
+                        </li>
+                    </ul>`
+                    document.querySelector('div').innerHTML=result
+            })
+        },3000)
+    }
+
+    const addNews=data=>{
+        //promise 2 parameter resolve ,reject
+       return new Promise((resolve,reject)=>{
+            setTimeout(()=>{
+                news.push(data)
+                const error=false;
+                if(!error){
+                    resolve()
+                }
+                else{
+                    reject(" Error:something might be wrong")
+                }
+            },4000)
+       })
+    }
+    
+    addNews({newsTitle:'fourth Title',newsContent:'this is the fourth news'})
+    //.then -take response,content from resolve()
+    .then(showNews)
+    .catch(err=>console.log(error))
+
+    </script>
+    
+</body>
+</html>
