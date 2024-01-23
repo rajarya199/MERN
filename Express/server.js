@@ -1,11 +1,17 @@
 const express=require('express')
  //express fn=read from express dependencies
-
 const app=express()
 //read env config
 require('dotenv').config()
+const morgan=require('morgan')
+ require('./db/connection') 
 const categoryRoute=require('./routes/categoryRoute')
+//middleware
 
+app.use(morgan('dev'))  //deve lopment mode --local system
+//morgan-uses to access info from http req,res ,error
+
+ 
 // app.use('/',(req,res)=>{ //req-user input  res--server result
 //     res.json({message:'this is express server'})
 // })
