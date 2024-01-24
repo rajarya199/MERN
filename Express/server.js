@@ -1,14 +1,18 @@
 const express=require('express')
  //express fn=read from express dependencies
 const app=express()
-//read env config
-require('dotenv').config()
+
+require('dotenv').config() //read env config
 const morgan=require('morgan')
  require('./db/connection') 
+ const bodyParser=require('body-parser') //read json data
 const categoryRoute=require('./routes/categoryRoute')
+
+
 //middleware
 
-app.use(morgan('dev'))  //deve lopment mode --local system
+app.use(morgan('dev'))  //development mode --local system
+app.use(bodyParser.json()) //read json data
 //morgan-uses to access info from http req,res ,error
 
  
@@ -16,8 +20,16 @@ app.use(morgan('dev'))  //deve lopment mode --local system
 //     res.json({message:'this is express server'})
 // })
 
+
+
+
 //route
 app.use('/api',categoryRoute) //use /api in any route path define in category route
+
+
+
+
+
 
 const port=process.env.PORT || 5000 // if env is not read run in 5000
 app.listen(port,()=>{
