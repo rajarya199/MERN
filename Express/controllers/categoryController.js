@@ -21,3 +21,12 @@ exports.postCategory=async(req,res)=>{
     }
     res.send(category)
 }
+
+//to retrive all data from category
+exports.categoryList=async(req,res)=>{
+    const category= await Category.find()
+    if(!category){
+        return res.status(400).json({error:'something went wrong'})
+    }
+    res.send(category)
+}
