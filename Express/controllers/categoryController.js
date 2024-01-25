@@ -30,3 +30,12 @@ exports.categoryList=async(req,res)=>{
     }
     res.send(category)
 }
+//
+exports.categoryDetails=async(req,res)=>{
+    const category=await Category.findById(req.params.id)
+    if(!category){
+        return res.status(400).json({error:'something went wrong'})
+    }
+    res.send(category) 
+
+}
