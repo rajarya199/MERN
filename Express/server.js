@@ -7,7 +7,7 @@ const morgan=require('morgan')
  require('./db/connection') 
  const bodyParser=require('body-parser') //read json data
 const categoryRoute=require('./routes/categoryRoute')
-
+const productRoute=require('./routes/productRoute')
 
 //middleware
 
@@ -25,7 +25,7 @@ app.use(bodyParser.json()) //read json data
 
 //route
 app.use('/api',categoryRoute) //use /api in any route path define in category route
-
+app.use('/api',productRoute)
 
 
 
