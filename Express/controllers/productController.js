@@ -27,3 +27,13 @@ exports.productList=async(req,res)=>{
     res.send(product)
 }
 
+//product details
+exports.productDetails=async(req,res)=>{
+    const product=await Product.findById(req.params.id)
+    .populate('category','category_name') //link with other table
+    //product model ko category ko ref lihera category model ko catgeory name retrive gareko 
+    if(!product){
+        return res.status(400).json({error:'something went wrong'})
+    }
+    res.send(product) 
+}
