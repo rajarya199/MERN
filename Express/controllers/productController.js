@@ -17,3 +17,13 @@ exports.postProduct=async(req,res)=>{
     }
     res.send(product)
 }
+
+//to show all the product
+exports.productList=async(req,res)=>{
+    const product=await Product.find()
+    if(!product){
+        return res.status(400).json({error:'something went wrong'})
+    }
+    res.send(product)
+}
+
