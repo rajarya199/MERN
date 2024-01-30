@@ -55,4 +55,19 @@ exports.updateProduct=async(req,res)=>{
         return res.status(400).json({error:'something went wrong'})
     }
     res.send(product) 
+} 
+//delete product
+exports.deleteProduct=async(req,res)=>{
+    Product.findByIdAndDelete(req.params.id)
+    .then (product=>{
+        if(!product){
+        return res.status(404).json({error:'product with that id not fpund'})
+        }
+        else{
+            return res.status(200).json({message:'product deleted'})
+        }
+    })
+    .catch(err=>{
+        return res.status(400).json({error:err})
+    })
 }
