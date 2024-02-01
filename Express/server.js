@@ -11,9 +11,10 @@ const productRoute=require('./routes/productRoute')
 
 //middleware
 
+//morgan-uses to access info from http req,res ,error
 app.use(morgan('dev'))  //development mode --local system
 app.use(bodyParser.json()) //read json data
-//morgan-uses to access info from http req,res ,error
+app.use('/public/uploads',express.static('public/uploads')) //access img from public's upload 
 
  
 // app.use('/',(req,res)=>{ //req-user input  res--server result
