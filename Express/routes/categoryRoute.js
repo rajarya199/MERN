@@ -1,11 +1,13 @@
 const express=require('express')
 const { testFunction, postCategory, categoryList, categoryDetails, updateCategory, deleteCategory } = require('../controllers/categoryController')
 const router=express.Router()
+const {categoryValidation,validation}=require('../validation/validator')
 //router.method('url',function)
 router.get('/demo',testFunction)
-router.post('/postcategory',postCategory)
+
+router.post('/postcategory',categoryValidation,validation,postCategory) //next of validation -send it to postcategory
 router.get('/categorylist',categoryList)
 router.get('/categorydetails/:id',categoryDetails)
-router.put('/updatecategory/:id',updateCategory)
+router.put('/updatecategory/:id',categoryValidation,validation,updateCategory)
 router.delete('/deletecategory/:id',deleteCategory)
 module.exports=router
