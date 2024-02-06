@@ -30,4 +30,32 @@ const userSchema=new mongoose.Schema({
     }
 },{timestamps:true})
 
-module.exprts=mongoose.model('User',userSchema)
+//virtual field
+userSchema.virtual('password')
+//set get fn
+.set(function(password){
+    this._password=password 
+    this.salt=uuidv1 //random generated value 
+    this._hashed_password=this.encryptPassword(password) 
+}) 
+.get(function(){
+    return this._password  
+})
+
+//define methods
+userSchema.methods={
+    encryptPassword: function(password){
+        if(!password) return ''
+        try{
+            return crypto 
+            .Hmac('sha1',this.salt) //algo to encrypt
+            .update(password)
+            .digest('hex') //in hex format
+        }
+        catch(err){
+            return err
+        }
+    }
+}
+module.exports=mongoose.model('User',userSchema)
+
