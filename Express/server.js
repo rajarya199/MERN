@@ -8,7 +8,7 @@ const morgan=require('morgan')
  const bodyParser=require('body-parser') //read json data
 const categoryRoute=require('./routes/categoryRoute')
 const productRoute=require('./routes/productRoute')
-
+const userRoute=require('./routes/userRoute')
 //middleware
 
 //morgan-uses to access info from http req,res ,error
@@ -27,6 +27,7 @@ app.use('/public/uploads',express.static('public/uploads')) //access img from pu
 //route
 app.use('/api',categoryRoute) //use /api in any route path define in category route
 app.use('/api',productRoute)
+app.use('/api',userRoute)
 
 
 
