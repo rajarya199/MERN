@@ -35,8 +35,8 @@ userSchema.virtual('password')
 //set get fn
 .set(function(password){
     this._password=password 
-    this.salt=uuidv1 //random generated value 
-    this._hashed_password=this.encryptPassword(password) 
+    this.salt=uuidv1() //random generated value 
+    this.hashed_password=this.encryptPassword(password) 
 }) 
 .get(function(){
     return this._password  
@@ -54,7 +54,7 @@ userSchema.methods={
         }
         catch(err){
             return err
-        }
+        } 
     }
 }
 module.exports=mongoose.model('User',userSchema)
