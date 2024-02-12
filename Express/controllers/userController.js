@@ -1,4 +1,7 @@
 const User=require('../models/userModel')
+const Token=require('../models/tokenModel')
+const crypto =require('crypto')
+const sendEmail=require('../utils/setEmail')
 
 // for user register
 exports.postUser=async(req,res)=>{
@@ -7,9 +10,41 @@ exports.postUser=async(req,res)=>{
         email:req.body.email,
         password:req.body.password
     })
+
+    //check if email is already registered
+    User.findOne({email:user.email})
+    .then(async data=>{
+        if(data){
+            return res.status(400).json({error:'email is already registered try with new one'})
+        }
+        else{
+            
     user=await user.save()
     if(!user){
         return res.status(400).json({error:'unable to create an account'})
     }
-    res.send(user)
+    //create tokem and save it to the token model
+    let token =new Token({
+        token:crypto.randomBytes(16).toString('hex'),
+        userId:user._id
+    })
+    token=await token.save()
+    if(!token){
+        return res.status(400).json({error:"failed to create a token"})
+    }
+    //send email process
+    sendEmail({
+        from:'no-reply@ecommerce.com',
+        to:user.email,
+        subject:"Email verification link",
+        text:`hello,\n\n please verify your email by click in the below link:\n\n
+        http:\/\/${req.headers.host}\/api\/confirmation\/${token.token}`
+        //http:localhost:8000/api/confirmation/3457777
+
+    })
+     res.send(user)
+
+     }
+    })
+
 }
