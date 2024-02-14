@@ -2,7 +2,8 @@ const User = require("../models/userModel");
 const Token = require("../models/tokenModel");
 const crypto = require("crypto");
 const sendEmail = require("../utils/setEmail");
-
+const jwt=require("jsonwebtoken")//authntication
+const {expressjwt}=require('express-jwt')
 // for user register
 exports.postUser = async (req, res) => {
   let user = new User({
@@ -120,5 +121,12 @@ exports.signIn=async(req,res)=>{
     if(!user.isVerified){
         return res.status(400).json({error:"verify email first to continue"}) 
     }
-    res.send(user)
+    //now generate token eith user id and jwt secret
+    const token=jwt.sign({_id:user._id},process.env.JWT_SECRET)
+    //store token in the cookie
+    res.cookie('mycookie',token,{expire:Date.now()+99999})
+    //return user information to frontend
+    const{_id,name,role}=user
+    return res.json({token,user:{name,role,email,_id}})
+    //to acess name--> .user.name
 }
