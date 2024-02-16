@@ -193,3 +193,28 @@ exports.resetPassword = async(req, res) => {
     message: "password has been reset successfully ,login to continue",
   });
 };
+
+//user list
+exports.userList=async(req,res)=>{
+  const user= await User.find()
+  .select('-hashed_password')
+//select (-name) --> '-' for not to show
+.select("-salt")
+if(!user){
+  return res.status(400).json({error:'something went wrong'})
+
+}
+res.send(user)
+}
+//user details
+exports.userDetails=async(req,res)=>{
+  const user=await User.findById(req.params.id)
+  .select('-hashed_password')
+  .select('-salt')
+  if(!user){
+    return res.status(400).json({error:'something went wrong'})
+  
+  }
+  res.send(user)
+  
+}
