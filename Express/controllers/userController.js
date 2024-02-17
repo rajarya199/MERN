@@ -223,3 +223,51 @@ exports.signOut=(req,res)=>{
   res.clearCookie('mycookie')
   res.json({message:'signout sucessfully'})
 }
+
+//require sign in
+exports.requireSignin=expressjwt({
+  secret:process.env.Jwt_SECRET,
+  algorithms:['HS256']
+})
+
+//middleware for user role
+exports.requireUser=(req,res,next)=>{
+  //verify jwt
+   expressjwt({
+    secret:process.env.Jwt_SECRET,
+  algorithms:['HS256']
+   })(req,res,(err)=>{
+    if(err){
+      return res.status(400).json({error:'Unauthorized'})
+    }
+    //check the role
+    if(req.user.role===0){
+      //grant access
+      next()
+    } else{
+      //unauthorize role
+      return res.status(403).json({error:'forbidden'})
+    }
+   })
+}
+
+//middleware for admin role
+exports.requireAdmin=(req,res,next)=>{
+  //verify jwt
+   expressjwt({
+    secret:process.env.Jwt_SECRET,
+  algorithms:['HS256']
+   })(req,res,(err)=>{
+    if(err){
+      return res.status(400).json({error:'Unauthorized'})
+    }
+    //check the role
+    if(req.user.role===1){
+      //grant access
+      next()
+    } else{
+      //unauthorize role
+      return res.status(403).json({error:'forbidden'})
+    }
+   })
+}
