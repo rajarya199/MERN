@@ -1,0 +1,25 @@
+css
+-cascading stylesheet
+framework-->bootstrap,tailwind css
+ 
+ Type
+ 1> internal css
+    written inside <head></head> tag of html
+    syntax:
+        <head>
+            <style>
+            selctor{
+                property:value;
+            }
+            </style>
+        </head>
+2>external css
+    written in external .css page
+    --to link external css with html page
+    <head>
+            <link rel="stylesheet" href="filename.css">
+
+    </head>
+3>inline css
+    written in tag as attribute
+    <p style="color:red;...">.......</p>
