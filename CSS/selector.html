@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1{
+            color:red;
+            font-size: 30px;
+            background-color: aqua;
+            text-align: center;
+        }
+
+        .title{
+            color:rgb(104, 34, 52);
+        }
+        .demo{
+            text-align:right;
+        }
+        #test{
+            background-color :rgba(255,0 , 0, 0.4);
+
+        }
+        .demo-text{
+            color:rgb(100,20,30)
+
+        }
+        #demo-txt{
+            color:yellowgreen;
+            text-shadow: 3px 3px 15px rgba(0,0,255,0.5);
+        }
+        .abc{
+            color:blue !important
+        }
+        #cde{
+            color:yellow
+        }
+    </style>
+</head>
+<body>
+    <h1> this is styled using element selector</h1>
+    <h1>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</h1>
+    <!-- elementSelector-using tag -->
+    
+    <!-- class name cannot begin with number,%.@ 
+    class an be multiple but id can be only one in a element
+    -->
+    <h2 class="title demo">This is a class selector</h2>
+    <h2 id="test"> this is a id selector</h2>
+
+    <!-- id is given preference than class selector when coincide -->
+    <h2 class="demo-text" id="demo-txt"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro?</h2>
+    <h2 class="abc" id="cde"> hello world</h2>
+</body>
+</html>
