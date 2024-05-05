@@ -3,7 +3,7 @@ const {ObjectId}=mongoose.Schema
 //table of order quantity and its product id
 const orderItemSchema=new mongoose.Schema({
     quantity:{
-        type:NUmber,
+        type:Number,
         required:true 
     },
     product:{
