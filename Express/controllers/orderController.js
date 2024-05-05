@@ -47,3 +47,30 @@ if(!order){
 res.send(order)
 
 }
+
+//order list
+exports.orderList=async(req,res)=>{
+    const order=await Order.find()
+    .populate('user','name')
+    .sort({createdAt:-1}) //  date -ve descending
+    if(!order){
+        return res.status(400).json({error:'something went wrong'})  
+    }
+    res.send(order)
+}
+//order details
+exports.orderDetails=async(req,res)=>{
+    const order =await Order.findById(req.params.id)
+    .populate('user','name')
+    //from orderitem ---get product--- from product-- get category by populating
+    .populate({
+        path:'orderItems',populate:{
+            path:'product',populate:'category'
+        }
+    })
+    if(!order){
+        return res.status(400).json({error:'something went wrong'})  
+    }
+    res.send(order)
+    
+}
