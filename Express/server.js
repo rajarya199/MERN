@@ -9,6 +9,7 @@ const morgan=require('morgan')
 const categoryRoute=require('./routes/categoryRoute')
 const productRoute=require('./routes/productRoute')
 const userRoute=require('./routes/userRoute')
+const orderRoute=require('./routes/orderRoute')
 //middleware
 
 //morgan-uses to access info from http req,res ,error
@@ -28,6 +29,7 @@ app.use('/public/uploads',express.static('public/uploads')) //access img from pu
 app.use('/api',categoryRoute) //use /api in any route path define in category route
 app.use('/api',productRoute)
 app.use('/api',userRoute)
+app.use('/api',orderRoute)
 
 
 
